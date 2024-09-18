@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-function AlertComponent({type, message}) {
+function AlertComponent({type, message, delay}) {
 
 const [showAlert, setShowAlert] = useState(true)
 
@@ -13,13 +13,20 @@ const closeAlert = (ev) => {
 
 }
 
+useEffect(()=> {
+delay && setTimeout(() => {
+    
+})
+})
+
+
+
 return ((showAlert && <div className={`alert alert-${type}`}>
 <div className="alert-close">
-<span className="nr-1">{message}</span>
+<span className="mr-1">{message}</span>
 <button style={{background: "transparent"}} onClick={closeAlert}>X</button>
 </div>
-</div>
-
+</div>))
 }
 
 export default AlertComponent
